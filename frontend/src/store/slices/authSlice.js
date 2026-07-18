@@ -59,7 +59,14 @@ const authSlice = createSlice({
         state.token = token;
         localStorage.setItem("token", token);
         localStorage.setItem("user", JSON.stringify(user));
-        toast.success("Account created successfully");
+        toast.success(`Account created. Welcome aboard, ${user.name}.`, {
+          duration: 3500,
+          style: {
+            borderRadius: "16px",
+            background: "#0f172a",
+            color: "#fff",
+          },
+        });
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.status = "failed";
@@ -77,7 +84,14 @@ const authSlice = createSlice({
         state.token = token;
         localStorage.setItem("token", token);
         localStorage.setItem("user", JSON.stringify(user));
-        toast.success(`Welcome back, ${user.name}`);
+        toast.success(`Signed in successfully. Welcome back, ${user.name}.`, {
+          duration: 3500,
+          style: {
+            borderRadius: "16px",
+            background: "#0f172a",
+            color: "#fff",
+          },
+        });
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.status = "failed";

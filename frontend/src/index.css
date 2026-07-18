@@ -1,3 +1,130 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+    font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(79, 70, 229, 0.14), transparent 28%),
+      radial-gradient(circle at top right, rgba(6, 182, 212, 0.12), transparent 24%),
+      linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+  }
+
+  ::selection {
+    background: rgba(79, 70, 229, 0.18);
+    color: #0f172a;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .app-shell {
+    @apply min-h-screen text-slate-900;
+  }
+
+  .glass-panel {
+    @apply border border-white/70 bg-white/90 shadow-[0_20px_60px_-25px_rgba(15,23,42,0.18)] backdrop-blur-xl;
+  }
+
+  .surface-card {
+    @apply rounded-[1.5rem] border border-slate-200/80 bg-white shadow-[0_16px_40px_-24px_rgba(15,23,42,0.2)];
+  }
+
+  .surface-card-soft {
+    @apply rounded-[1.25rem] border border-slate-200 bg-white/90 shadow-[0_14px_40px_-28px_rgba(15,23,42,0.18)];
+  }
+
+  .section-label {
+    @apply text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500;
+  }
+
+  .soft-input {
+    @apply w-full rounded-2xl border border-slate-200 bg-white/95 px-4 py-3 text-sm text-slate-900 shadow-sm outline-none transition duration-200 placeholder:text-slate-400 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/15;
+  }
+
+  .soft-select {
+    @apply w-full rounded-2xl border border-slate-200 bg-white/95 px-4 py-3 text-sm text-slate-900 shadow-sm outline-none transition duration-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/15;
+  }
+
+  .soft-button {
+    @apply inline-flex items-center justify-center rounded-2xl px-4 py-2.5 text-sm font-semibold transition duration-200 focus:outline-none focus:ring-4 focus:ring-indigo-500/20;
+  }
+
+  .soft-button-primary {
+    @apply inline-flex items-center justify-center rounded-2xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-[0_14px_28px_-12px_rgba(79,70,229,0.55)] transition duration-200 hover:-translate-y-0.5 hover:bg-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/20;
+  }
+
+  .soft-button-ghost {
+    @apply inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition duration-200 hover:border-slate-300 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-indigo-500/20;
+  }
+
+  .soft-chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 shadow-sm;
+  }
+
+  .metric-card {
+    @apply rounded-[1.5rem] border border-slate-200/80 bg-white p-5 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.2)];
+  }
+
+  .task-row {
+    @apply rounded-[1.25rem] border border-slate-200 bg-white/90 shadow-[0_14px_40px_-28px_rgba(15,23,42,0.18)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_22px_44px_-28px_rgba(15,23,42,0.28)];
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.45s ease-out both;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.35s ease-out both;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 1.8s ease-in-out infinite;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulseSoft {
+  0%,
+  100% {
+    opacity: 0.65;
+  }
+  50% {
+    opacity: 1;
+  }
+}
