@@ -102,8 +102,3 @@ App runs at `http://localhost:5173`.
 - ✅ Bonus: search (MongoDB text index), sort (by date/priority), pagination, toast notifications, loading states
 
 
-## Notes / Design Decisions
-
-- Task ownership is enforced at the query level (`{ user: req.user._id }`) on every read/update/delete — not just at the route level — so there's no way to access another user's task even by guessing an ID.
-- Search uses a MongoDB text index on `title` + `description`.
-- Validation happens both client-side (basic HTML5 required/minLength) and server-side (Mongoose schema + controller checks) — never trust the client alone.
