@@ -33,12 +33,12 @@ function Login() {
             <img
               src={logo}
               alt="TaskFlow logo"
-              className="block h-20 w-full object-cover object-center"
+              className="block h-40 w-full object-cover object-center"
             />
           </div>
 
           <div className="px-6 pt-1 text-center">
-            <h2 className="text-xl font-semibold tracking-tight text-slate-900">Log in</h2>
+            <h6 className="text-xl font-semibold tracking-tight text-slate-900">Log in</h6>
             <p className="mt-2 text-sm leading-6 text-slate-600">
               Continue where you left off and keep your projects moving.
             </p>
